@@ -4,15 +4,15 @@ const path = require('path'),
 
 module.exports = function (app) {
 
-    //To Deposit Balance
+    //to deposit balance
     app.patch("/balanceDeposit", userPolicy.isLoggedIn, transactionController.deposit);
 
-    //To Withdraw Balance
+    //to withdraw balance
     app.patch("/balanceWithdraw", userPolicy.isLoggedIn, transactionController.withdraw);
 
-    //For Balance Enquiry
-    app.get("/balanceEnquiry", userPolicy.isLoggedIn, transactionController.enquiry);
+    //for balance enquiry
+    app.get("/balanceEnquiry", userPolicy.isLoggedIn, transactionController.balanceEnquiry);
 
-    //To Download CSV File Of Any Users Transaction Within A Certain Timeline
-    app.post("/transactionDownload", userPolicy.isLoggedIn, transactionController.enquiry);
+    //to download csv file of any users transaction within a certain timeline
+    app.post("/transactionDownload", userPolicy.isLoggedIn, userPolicy.isManager, transactionController.transactionDownload);
 };

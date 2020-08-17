@@ -1,6 +1,7 @@
 const path = require('path'),
     fs = require('fs');
 
+//Register's all routes and models
 exports.registerModelsAndRoutes = function (router) {
     return new Promise((resolve, reject) => {
         const modulesFolder = path.resolve('./modules');

@@ -1,5 +1,6 @@
 const Json2csvParser = require('json2csv').Parser;
 
+//to convert json to csv
 exports.jsonToCSV = function (data) {
 	var fLine = data[0];
 	var csvHeader = [];

@@ -10,7 +10,7 @@ const path = require('path'),
     Register = require(path.resolve('./register')),
     app = express();
 
-//Setting Up Environment Variables
+//Setting up environment variables
 const setupConfigs = function () {
     return new Promise((resolve, reject) => {
         for (let key in configFile) {
@@ -20,7 +20,7 @@ const setupConfigs = function () {
     })
 }
 
-//Setting Up MongoDB Database
+//Setting up mongodb database
 const setupMongoDB = function () {
     return new Promise((resolve, reject) => {
         const mongooseOptions = {
@@ -41,7 +41,7 @@ const setupMongoDB = function () {
     });
 }
 
-//Registering All The Routes
+//Registering all the routes
 const registerModelsAndRoutes = function () {
     return new Promise((resolve, reject) => {
         Register.registerModelsAndRoutes(expressRouter).then(() => {
@@ -50,7 +50,7 @@ const registerModelsAndRoutes = function () {
     });
 }
 
-//Setting Up And Initiating Server
+//Setting up and initiating server
 const serverSetup = function () {
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({
